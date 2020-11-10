@@ -52,7 +52,7 @@ async function validarCoupon(req, res) {
         const valid_until = Date.parse(coupon === null || coupon === void 0 ? void 0 : coupon.valid_until);
         const valid_since = Date.parse(coupon === null || coupon === void 0 ? void 0 : coupon.valid_since);
         const today = Date.parse(new Date().toISOString());
-        if (today >= valid_since || today <= valid_until) {
+        if (today >= valid_since && today <= valid_until) {
             return res.json({
                 ok: false,
                 msg: "Cuponvalido",

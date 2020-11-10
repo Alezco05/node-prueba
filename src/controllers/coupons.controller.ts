@@ -61,7 +61,7 @@ export async function validarCoupon(
     const valid_until = Date.parse(coupon?.valid_until);
     const valid_since = Date.parse(coupon?.valid_since);
     const today = Date.parse(new Date().toISOString());
-    if (today >= valid_since || today <= valid_until) {
+    if (today >= valid_since && today <= valid_until) {
       return res.json({
         ok: false,
         msg: "Cuponvalido",
