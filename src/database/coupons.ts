@@ -1,4 +1,4 @@
-const coupon: {
+export const coupons: {
   id: number;
   name: string;
   description: string;
