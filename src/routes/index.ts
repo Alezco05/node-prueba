@@ -1,7 +1,7 @@
 import { Router } from "express";
 const router = Router();
 
-import { createCoupon, getCoupons } from "../controllers/coupons.controller";
+import { createCoupon, getCoupons, getCoupon, validarCoupon } from "../controllers/coupons.controller";
 import { getProducts, getProduct } from "../controllers/products.controller";
 import { validarAuth } from "../middleware/validate-user";
 import { validarCustomer } from "../middleware/validate-customer";
@@ -23,5 +23,10 @@ router.route("/coupon")
             ],
             createCoupon
       );
+      
+      
+router.route("/coupon/:id").get([validarAuth], getCoupon);
+router.route("/coupon-validate/:id").get([validarCustomer], validarCoupon);
+
 
 export default router;
