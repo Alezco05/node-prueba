@@ -1,10 +1,11 @@
 import {Router} from 'express';
 const router = Router();
 
-import { getPhotos} from '../controllers/products.controller'
+import { getProducts, getProduct} from '../controllers/products.controller'
 
 router.route('/products')
-      .get(getPhotos)
+      .get(getProducts)
 router.route('/products/:id')
+      .get(getProduct);
 
 export default router;
